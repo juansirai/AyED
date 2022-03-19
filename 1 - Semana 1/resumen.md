@@ -440,3 +440,33 @@ cada elemento elto de tipo int, en el arreglo a*
     // main
   }
 ```
+
+<h3>✨ Pasaje de Parámetros </h3>
+
+En java, los parámetros se pasan **por valor**, es decir que se pasa una copia del parámetro actual.
+
+**Parámetros formales:** Son los parámetros en la definición del método<br>
+**Parámetros actuales/reales:** Son los parámetros en la invocación al método <br>
+
+Dentro del cuerpo del método, se puede cambiar el valor de la copia que se recibe como parámetro, pero no tendrá efectos en el parámetro actual.<br>
+Cuando java llama a un método, hace una copia de sus parámetros reales, y envía esas copias al método. Cuando el método finaliza, esas copias se descartan y los valores de las variables en el código principal son los mismos que antes.<br>
+
+<mark>Clases wrapper y clase string: </mark> las clases wrapper y las instancias de string son inmutables, de manera que cuando se modifica el valor a una variable de estos tipos, se **crea una nueva instancia** con el nuevo valor y se asigna a esta variable.<br>
+
+<mark>Tipo de dato referencial:</mark> en java podemos pasar como parámetro una referencia a un objeto, y con ella cambiar el valor de sus variables, pero <u>no podemos cambiar a que objeto se refiere</u>.
+
+```java
+  public class PasajePorValor {
+    public static void cambiarNombre(Contacto c) {
+      c.setNombre("Pilar");
+    }
+
+  public static void main(String[] args){
+    Contacto c = new Contacto();
+    c.setNombre("Lucia");
+    PasajePorValor.cambiarNombre(c);
+    // se pasa una copia de la referencia a c
+    System.out.println(c.getNombre());
+  }
+}
+```
