@@ -21,6 +21,7 @@ public class Ejercicio02 {
 			System.out.println("Ingrese limite inferior (-1 para finalizar): ");
 			a = s.nextInt();
 		}
+		s.close();
 	}
 
 }
