@@ -13,7 +13,7 @@ Pueden estar o no ordenadas.
 
 Suponiendo listas con elementos de enteros:
 
-* ```elemento(int pos)```: retorna el elemento de la posición indicada.
+* ```elemento(int pos)```: retorna el elemento de la posición indicada. Las listas comienzan en la posición 1.
 * ```incluye(Integer eleme)```: retorna true si elem está en la lista.
 * ```agregarInicio(Integer elem)```: agrega al inicio de la lista.
 * ```agregarFinal(Integer elem):``` agrega al final de la lista.
@@ -149,9 +149,24 @@ public class NodoEntero {
 
 ```
 
+
+<h3> Generalización</h3>
+
+Para la generalización, se puede definir a la superclase directamente con parametros de tipo object, que es común a todos los tipos específicos.
+
+Es decir que cuando guardo un elemento, hace **upcasting** y se almacena como object.
+Esto nos permite generalizar, e incluso dentro de una misma lista tener distintos tipos de subclases. (Se convierte en una estructura genérica heterogénea) <br>
+
+Ojo, luego para recuperar el elemento, tengo que hacer downcasting, y ahí tengo que tener cuidado de saber qué estoy queriendo recuperar (si estoy en una lista con tipos heterogeneos, puede llegar a ser un problema.) Debo hacer el casteo explícito, pudiendo estar almacenado o no el tipo al que quiero castear.
+
+
+
 <h5>📌 Generalización de tipos</h5>
 
-A partir de java 5, se introduce la incorporación de **tipos genéricos**, lo cual permite definir estructuras en donde la especificación del tipo de objeto a guardar se posterga hasta el momento de instanciación.
+A partir de java 5, se introduce la incorporación de **tipos genéricos**, lo cual permite definir estructuras en donde la especificación del tipo de objeto a guardar se posterga hasta el momento de instanciación. Esto combina las ventajas de las listas de tipos específicos, y la generalización de las listas genericas.
+
+Se envía como parámetro el tipo de dato con el que va a trabajar esa lista, y a partir de esa instanciación la lista va a trabajar con ese tipo de datos solamente.
+
 
 ```java
 package tp03.ejercicio6;
@@ -194,6 +209,9 @@ Luego, cuando se instancian las estructuras se debe definir el tipo de objeto qu
   Integer i = lista.proximo(); 🡺 error en compilación
   lista.agregarFinal(55); 🡺 error de compilación
 ```
+
+
+
 
 📌Clase abstracta ListaGenerica y una subclases implementada como lista enlazada con tipos Genéricos:
 
