@@ -23,7 +23,7 @@ Un **arbol binario** es una colección de nodos tal que:
  * La <u>altura de un arbol</u> es la altura del nodo raíz.
 * <mark>Ancestro/Descendiente</mark>: si existe un camino desde n1 a n2, se dice que n1 es ancestro de n2, y n2 es descendiente de n1.
 
-<img src='images/graficoArbol.PNG' width=700 height=300><br>
+<img src='Images/graficoArbol.PNG' width=700 height=300><br>
 
 * <mark>Arbol binario lleno</mark>: Dado un arbol T de altura h, está lleno si cada <u>nodo interno</u> tiene <u>grado 2</u>, y todas las <u>hojas están en el mismo nivel</u>.
 Entonces, T está lleno si:
@@ -32,12 +32,12 @@ Entonces, T está lleno si:
  * Cantidad de nodos: 2 ^(h+1) – 1
   >En donde h es la altura
 
-<img src='images/cantNodos.PNG' width=700 height=300><br>
+<img src='Images/cantNodos.PNG' width=700 height=300><br>
 
 * <mark>Arbol binario completo</mark>: un arbol binario está completo, si es lleno de altura h-1, y el nivel h se completa de izq a derecha.<br>
 En un arbol binario completo, la **cantidad de nodos** varia entre **(2^h)** y **2 ^(h+1) – 1**
 
-<img src='images/cantNodosCompleto.PNG' width=700 height=300><br>
+<img src='Images/cantNodosCompleto.PNG' width=700 height=300><br>
 
 Finalmente, cada **nodo** tiene:
 * Información propia del nodo.
@@ -85,7 +85,7 @@ Es un arbol binario asociado a una **expresión aritmética**.
 * Nodos internos representan **operadores**
 * Hojas representan **operandos**
 
-<img src='images/arbolExpresion.PNG' width=700 height=300><br>
+<img src='Images/arbolExpresion.PNG' width=700 height=300><br>
 
 <mark>Algunas aplicaciones:</mark>
 
@@ -93,11 +93,11 @@ Es un arbol binario asociado a una **expresión aritmética**.
 * Evaluar expresiones algebraicas o logicas
 * Traducir expresiones a notacion prefija, sufija e infija.
 
-<img src='images/recorridoArbolExpresion.PNG' width=700 height=300><br>
+<img src='Images/recorridoArbolExpresion.PNG' width=700 height=300><br>
 
 <h2>📌 Construcción de un arbol de expresion </h2>
 
-<img src='images/contruccion.PNG' width=700 height=300><br>
+<img src='Images/contruccion.PNG' width=700 height=300><br>
 
 <mark>Construccion a partir de una expresion postfija</mark>
 
@@ -115,7 +115,7 @@ Pseudocodigo:
   fin
  ```
 
- <img src='images/construccionPostfija.GIF' width=700 height=300><br>
+ <img src='Images/construccionPostfija.gif' width=700 height=300><br>
 
  <mark>Construccion a partir de una expresion pre fija</mark>
 
