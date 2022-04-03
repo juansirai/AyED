@@ -112,6 +112,7 @@ public abstract class ListaGenerica<T> {
 	/**
 	 * Devuelve una lista sin elementos.
 	 * **/
-
+	
+	public abstract boolean Agregar(T[] v);
 
 }

@@ -230,5 +230,25 @@ public class ListaEnlazadaGenerica<T> extends ListaGenerica<T> {
 		}
 		return true;
 	}
+	
+	@Override
+	public boolean Agregar(T[] v) {
+		for(int i=0; i < v.length;i++) {
+			
+			NodoGenerico<T> aux = new NodoGenerico<T>();
+			aux.setDato(v[i]);
+
+			if (this.inicio == null) {
+				this.inicio = aux;
+				this.actual = aux;
+				this.fin = aux;
+			} else {
+				aux.setSiguiente(this.inicio);
+				this.inicio = aux;
+			}
+			this.tamanio++;
+		}
+		return true;
+	}
 
 }
