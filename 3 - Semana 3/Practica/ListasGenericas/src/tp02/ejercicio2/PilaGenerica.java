@@ -1,7 +1,11 @@
 package tp02.ejercicio2;
 
 public class PilaGenerica<T> {
-	ListaGenerica<T> datos = new ListaEnlazadaGenerica<T>();
+	ListaGenerica<T> datos ;
+	
+	public PilaGenerica() {
+		this.datos = new ListaEnlazadaGenerica<T>();
+	}
 	
 	public boolean Apilar(T elemento) {
 		this.datos.agregarInicio(elemento);
