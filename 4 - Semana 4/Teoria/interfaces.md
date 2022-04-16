@@ -105,16 +105,16 @@ public class Pajaro extends Animal implements Volador, Mascota {
 }
 ```
 
-<img src = "images/interfaces.png" width="600">
+<img src = "/images/interfaces.png" width="600">
 
 Todos los métodos declarados en la interface, se deben implementar en la clase.
 
 Una clase puede heredar de una **única clase base** e implementar **tantas interfaces como quiera**.
-<img src = "images/upcasting.png" width="600">
+<img src = "/images/upcasting.png" width="600">
 
 <h3><mark> Interfaces y Upcasting</mark></h3>
 
-<img src="images/upcasting2.png" width="600">
+<img src="/images/upcasting2.png" width="600">
 
 * Las interfaces definen un **nuevo tipo de dato**, entonces podemos decir:
 
@@ -167,8 +167,8 @@ El método retorna:
 
 Ejemplo: clase persona implementa Comparable \<T>
 
-<img src="images/comparables.png" width="600">
+<img src="/images/comparables.png" width="600">
 
 Ejemplo: clase persona implementa Comparable \<Persona>
 
-<img src="images/comparablePersona.png" width="600">
+<img src="/images/comparablePersona.png" width="600">
