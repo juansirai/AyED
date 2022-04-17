@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>AyED</name>
+	<comment></comment>
+	<projects>
+		<project>ListasGenericas</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<variableList>
+		<variable>
+			<name>colas</name>
+			<value>file:/C:/Users/juans/OneDrive/Documentos/Lic%20Sistemas/2%20-%20Segundo%20A%C3%B1o/1%20-%20Primer%20Semestre/AyED/3%20-%20Semana%203/Practica/ListasGenericas/src/tp02/ejercicio2</value>
+		</variable>
+	</variableList>
+</projectDescription>
