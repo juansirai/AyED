@@ -114,7 +114,7 @@ Una clase puede heredar de una **única clase base** e implementar **tantas inte
 
 <h3><mark> Interfaces y Upcasting</mark></h3>
 
-<img src="/images/upcasting2.png" width="600">
+<img src="/images/upcasting2.PNG" width="600">
 
 * Las interfaces definen un **nuevo tipo de dato**, entonces podemos decir:
 
