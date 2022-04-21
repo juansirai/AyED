@@ -2,7 +2,7 @@
 <h3>Universidad Nacional de La Plata<br>
 2022</h3>
 
-<img src="https://i.gifer.com/LqRY.gif" width="600" height="200" alt="algorithm">
+<img src="http://ahorasomos.izertis.com/solidgear/wp-content/uploads/2016/08/technology-1283624_770.jpg" width="1000" height="200" alt="algorithm">
 
 <h2>Propósito de este repositorio</h2>
 
