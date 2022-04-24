@@ -272,5 +272,3 @@ Pasos:
     “)” se desapila todo hasta el “(“, incluído éste
   d) cuando se llega al final de la expresión, se desapilan todos los elementos llevándolos a la salida, hasta que la pila quede vacía
   ```
-=======
->>>>>>> 092eb6086a61bc45e24489f59a5fb87f55a07400
