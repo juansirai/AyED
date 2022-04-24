@@ -2,7 +2,7 @@ package tp03.ejercicio4;
 import tp03.ejercicio1.ArbolBinario;
 
 public class RedBinariaLlena {
-
+	/*Ideal es crear un metodo privado con el parámetro, ya que la consigna no lo incluye*/
 	public static int retardoReenvio(ArbolBinario <Integer> a) {
 		int segundos = -1;
 		

@@ -2,7 +2,7 @@
 <h3>Universidad Nacional de La Plata<br>
 2022</h3>
 
-<img src="https://i.gifer.com/LqRY.gif" width="600" height="200" alt="algorithm">
+<img src="http://ahorasomos.izertis.com/solidgear/wp-content/uploads/2016/08/technology-1283624_770.jpg" width="1000" height="200" alt="algorithm">
 
 <h2>Propósito de este repositorio</h2>
 
@@ -40,6 +40,7 @@ En el presente repositorio se organizará todo el material teórico y práctico 
 * <a href="https://github.com/juansirai/AyED/tree/master/AyED/src/tp03/ejercicio5">Ejercicio 5</a>
 
 ---------------------------------------------------------------------------------------
+<<<<<<< HEAD
 
 <h2>Algoritmos Genéricos</h2>
 
@@ -271,3 +272,5 @@ Pasos:
     “)” se desapila todo hasta el “(“, incluído éste
   d) cuando se llega al final de la expresión, se desapilan todos los elementos llevándolos a la salida, hasta que la pila quede vacía
   ```
+=======
+>>>>>>> 092eb6086a61bc45e24489f59a5fb87f55a07400
