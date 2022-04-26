@@ -40,7 +40,7 @@ En el presente repositorio se organizará todo el material teórico y práctico 
 * <a href="https://github.com/juansirai/AyED/tree/master/AyED/src/tp03/ejercicio5">Ejercicio 5</a>
 
 ---------------------------------------------------------------------------------------
-<<<<<<< HEAD
+
 
 <h2>Algoritmos Genéricos</h2>
 
@@ -198,26 +198,72 @@ public void preorden() {
 `Recorrido por niveles`
 
 ```java
-public void porNiveles(){
-		ArbolBinario<T> V = null;
-		ColaGenerica<ArbolBinario<T>> cola = new ColaGenerica<ArbolBinario<T>>();
-		// encolo la raiz
-		cola.Encolar(this);
-		//mientras cola no está vacia
-		while(!cola.esVacia()) {
-			//desencolo e imprimo
-			V = cola.Desencolar();
-			System.out.println(V.getDato());
-			//encolo hijo izquierdo
-			if(V.tieneHijoIzquierdo()) {
-				cola.Encolar(V.getHijoIzquierdo());
-			}
-			//encolo hijo derecho
-			if(V.tieneHijoDerecho()) {
-				cola.Encolar(V.getHijoDerecho());
-			}
-		}
-	}
+public class ArbolBinario<T>{
+  private T dato;
+  private ArbolBinario<T> hijoIzquierdo;
+  private ArbolBinario<T> hijoDerecho;
+
+  public void recorridoPorNiveles(){
+    ArbolBinario<T> arbol = null;
+    ColaGenerica<ArbolBinario<T>> cola = new ColaGenerica <ArbolBinario<T>>();
+    cola.encolar(this);
+    cola.encolar(null);
+
+    while(!cola.esVacia()){
+      arbol = cola.desencolar();
+      if (arbol != null){
+        System.out.print(arbol.getDato());
+        if(arbol.tieneHijoIzquierdo())
+          cola.encolar(arbol.getHijoIzquierdo());
+        if (arbol.tieneHijoDerecho())
+          cola.encolar(arbol.getHijoDerecho());
+      }
+      else if (!cola.esVacia()){
+        System.out.println();
+        cola.encolar(null);
+      }
+    }
+  }
+}
+```
+
+`Es arbol Lleno?`
+
+```java
+public boolean lleno() {
+  ArbolBinario<T> arbol = null;
+  ColaGenerica<ArbolBinario<T>> cola = new ColaGenerica<ArbolBinario<T>>();
+  boolean lleno = true;
+
+  cola.encolar(this);
+  int cant_nodos=0;
+  cola.encolar( null);
+  int nivel= 0;
+  while (!cola.esVacia() && lleno) {
+    arbol = cola.desencolar();
+
+    if (arbol != null) {
+      System.out.print(arbol.getDatoRaiz());
+      if (!arbol.getHijoIzquierdo().esvacio()) {
+        cola.encolar(arbol.getHijoIzquierdo());
+        cant_nodos++;
+      }
+
+      if (!(arbol.getHijoDerecho().esvacio()) {
+        cola.encolar(arbol.getHijoDerecho());
+        cant_nodos++;
+      }
+    }
+    else if (!cola.esVacia()) {
+      if (cant_nodos == Math.pow(2, ++nivel)){
+        cola.encolar( null);
+        cant_nodos=0;
+        System. out.println();
+      }
+      else lleno=false;}
+    }
+    return lleno;
+  }
 ```
 
 <h3>Arboles de Expresion</h3>
@@ -239,6 +285,28 @@ tomo un carácter de la expresión
   fin
 ```
 
+`Postfija en arbol binario`
+
+```java
+public ArbolBinario<Character> convertirPostfija(String exp) {
+  Character c = null;
+  ArbolBinario<Character> result;
+  PilaGenerica<ArbolBinario<Character>> p = new PilaGenerica<ArbolBinario<Character>>();
+  for (int i = 0; i < exp.length(); i++) {
+    c = exp.charAt(i);
+    result = new ArbolBinario<Character>(c);
+    if ((c == '+') || (c == '-') || (c == '/') || (c == '*')) {
+      // Es operador
+      result.agregarHijoDerecho(p.desapilar());
+      result.agregarHijoIzquierdo(p.desapilar ());
+    }
+    p.apilar(result);
+  }
+  return (p.desapilar());
+}
+```
+
+
 ` A partir de una expresion prefija`
 
 ```java
@@ -251,6 +319,23 @@ ArbolExpresión (A: ArbolBin, exp: string )
     ArbolExpresión ( subArbDer de R, exp (sin 1° carácter) )
   si es un operando
     creo un nodo (hoja)
+```
+**/ *+abc+de**
+
+```java
+public ArbolBinario<Character> convertirPrefija(StringBuffer exp) {
+
+  Character c = exp.charAt(0);
+  ArbolBinario<Character> result = new ArbolBinario<Character>(c);
+  if ((c == '+') || (c == '-') || (c == '/') || c == '*') {
+    // es operador
+    result.agregarHijoIzquierdo(this.convertirPrefija(exp.delete(0,1)));
+    result.agregarHijoDerecho(this.convertirPrefija(exp.delete(0,1)));
+  }
+  // es operando
+  return result;
+}
+
 ```
 
 `A partir de una expresion Infija`
@@ -272,3 +357,122 @@ Pasos:
     “)” se desapila todo hasta el “(“, incluído éste
   d) cuando se llega al final de la expresión, se desapilan todos los elementos llevándolos a la salida, hasta que la pila quede vacía
   ```
+
+  `Evaluacion de Arbol`
+
+*Este método evalúa y retorna un número de acuerdo a la expresión aritmética representada por el ArbolBinario que es enviado como parámetro*
+  ```java
+public Integer evaluar(ArbolBinario<Character> arbol) {
+  Character c = arbol.getDato();
+  if ((c == '+') || (c == '-') || (c == '/') || c == '*') {
+    // es operador
+    int operador_1 = evaluar(arbol.getHijoIzquierdo());
+    int operador_2 = evaluar(arbol.getHijoDerecho());
+    switch (c) {
+      case '+':
+        return operador_1 + operador_2;
+      case '-':
+        return operador_1 - operador_2;
+      case '*':
+        return operador_1 * operador_2;
+      case '/':
+        return operador_1 / operador_2;
+      }
+    }
+    // es operando
+    return Integer.parseInt(c.toString());
+  }
+  ```
+
+<h3> Arboles Generales </h3>
+
+`Recorrido Pre Orden`
+
+```java
+public void preOrden() {
+  imprimir (dato);
+  obtener lista de hijos;
+  mientras (lista tenga datos) {  
+    hijo obtenerHijo;
+    hijo.preOrden();
+  }
+}
+```
+
+`Recorrido Post Orden`
+
+```java
+public void postOrden() {
+  obtener lista de hijos;
+  mientras (lista tenga datos) {  
+    hijo obtenerHijo;
+    hijo.postOrden();
+  }
+  imprimir (dato);
+}
+```
+
+`Recorrido Por Niveles`
+
+```java
+public void porNiveles() {
+  encolar(raíz);
+  mientras cola no se vacíe {
+    v := desencolar();
+    imprimir (dato de v);
+    para cada hijo de v
+      encolar(hijo);
+    }
+  }
+```
+
+`Contar cantidad de niveles`
+```java
+Seudocódigo Ejerc1-Niveles {
+  q: cola de vértices;
+  encolar raíz R en q;
+  encolar null en q;
+  cantNiveles:= 0;
+
+  mientras (cola no se vacíe) {
+    desencolar v de q;
+    si (dato de v no es ??) {
+      imprimir (dato de v);
+      para cada hijo w de v
+        encolar w en q;
+      }
+  sino
+    si (q no está vacía)
+    encolar null en q;
+    cantNiveles++;
+  }
+  return cantNiveles;
+}
+```
+
+`Contar Nodos`
+```java
+Seudocódigo Ejerc1-Niveles {
+  q: cola de vértices;
+  cantNodods: ArrayEnteros;
+
+  encolar raíz R en q;
+  encolar null en q;
+  cantNiveles:= 0;
+
+  mientras (cola no se vacíe) {
+    desencolar v de q;
+    si (dato de v no es null) {
+      imprimir (dato de v);
+      cantNodos[nroNivel]++;
+      para cada hijo w de v
+        encolar w en q;
+      }
+  sino
+    si (q no está vacía)
+    encolar null en q;
+    cantNiveles++;
+  }
+  return cantNodos;
+}
+```
