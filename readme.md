@@ -11,7 +11,7 @@ En el presente repositorio se organizará todo el material teórico y práctico 
 
 <h2>Material Teoria</h2>
 
-
+* <a href="https://github.com/juansirai/AyED/blob/master/Ejercitaciones%20Teoricas/Arboles/resolucion.md">Practica repaso Arboles</a>
 ------------------------------------------
 <h2>Practicas Resueltas</h2>
 
