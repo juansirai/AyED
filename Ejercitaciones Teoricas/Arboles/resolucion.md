@@ -132,3 +132,9 @@ en un arbol binario completo de altura H, la cantidad de nodos puede ir de:
 6 5 * 7 3 − 4 8 * + +
 
 <img src='img/ejercicio8.png' alt='arbol'>
+
+9.- Construya el árbol de expresión correspondiente a la siguiente expresión infija.
+
+( A + ( B * C ) ) * ( D – E )
+
+<img src='img/ejercicio9.png' alt='arbol'>
