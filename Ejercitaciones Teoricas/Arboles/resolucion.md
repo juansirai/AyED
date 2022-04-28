@@ -138,3 +138,44 @@ en un arbol binario completo de altura H, la cantidad de nodos puede ir de:
 ( A + ( B * C ) ) * ( D – E )
 
 <img src='img/ejercicio9.png' alt='arbol'>
+
+10.- Construya el árbol de expresión correspondiente a la siguiente expresión prefija
+
+```+ + a e / * - b c d f```
+
+¿Cuál es la profundidad del nodo d?
+(a) 1 (b) 2 (c) 3 (d) 4
+
+<img src='img/ejercicio10.png' alt='arbol'>
+
+La profundidad es 3.
+
+11.- Obtenga la expresión prefija de la siguiente expresión postfija:
+
+`A B C * D - E F / G / - *`
+
+12.- ¿Cuál de los siguientes árboles binarios tiene su recorrido inorden BCAD y preorden ABCD?
+
+<img src='img/enunciado.png' alt='arbol'>
+
+```
+RTA: el arbol del grafico C cumple con las dos condiciones.
+```
+
+13.- Recontruya el árbol binario T cuyo recorrido preorden es 2 5 3 9 7 1 6 4 8 y su recorrido
+inorden es 9 3 7 5 1 2 6 8 4.
+
+```
+Pre-Orden: R  -> HI -> HD
+IN onrden: HI > R -> HD
+
+ - Por el recorrido preorden sabemos que la raíz es 2.
+ - Si ubicamos 2 en el recorrido in orden, podemos ver que el subarbol izquierdo es 9 - 3 - 7 - 5 - 1 y el subarbol derecho es 6 - 8 - 4.
+ - Trabajando sobre el subarbol derecho, el 6 se encuentra primero en el recorrido preorden, con lo cual sabemos que es la raiz quedando 8 y 4 como descendientes hacia la derecha.
+ - Luego gracias al recorrido preorden sabemos que 4 s la siguiente raiz, y al estar a el 8 a la izquierda en el In orden sabemos que es su hijo izquierdo.
+
+ - Por el lado del subarbol izquierdo, 5 es la raiz ya que se encuentra primero en el recorrido preorde.
+ - Analizando la posicion dle 5 en el inorden, vemos que 1 le queda como unico hijo dercho, y tiene un subarbol izquierdo formado por 9 3 y 7.
+ - En el recorrido Preorden ubicamos 3 como la raiz de dicho subarbol, y si nos dirigimos al inorden vemos que 9 es su hijo derecho y 7 su hijo izquierdo.
+```
+<img src='img/ejercicio13.png' alt='arbol'>
