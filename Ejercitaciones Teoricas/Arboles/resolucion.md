@@ -165,6 +165,9 @@ RTA: el arbol del grafico C cumple con las dos condiciones.
 13.- Recontruya el árbol binario T cuyo recorrido preorden es 2 5 3 9 7 1 6 4 8 y su recorrido
 inorden es 9 3 7 5 1 2 6 8 4.
 
+
+<img src='img/ejercicio13.png' alt='arbol'>
+
 ```
 Pre-Orden: R  -> HI -> HD
 IN onrden: HI > R -> HD
@@ -178,4 +181,127 @@ IN onrden: HI > R -> HD
  - Analizando la posicion dle 5 en el inorden, vemos que 1 le queda como unico hijo dercho, y tiene un subarbol izquierdo formado por 9 3 y 7.
  - En el recorrido Preorden ubicamos 3 como la raiz de dicho subarbol, y si nos dirigimos al inorden vemos que 9 es su hijo derecho y 7 su hijo izquierdo.
 ```
-<img src='img/ejercicio13.png' alt='arbol'>
+
+
+
+
+14.- La siguiente figura muestra un árbol general:
+
+<img src='img/ejercicio14_enunciado.png' alt='arbol'>
+
+(a) Complete los blancos de las sentencias con la terminología vista en clase.
+* i. `A` es la raíz del árbol.
+* ii. `A` es padre de B, C y D.
+* iii. `E y F` son hermanos, puesto que ambos son hijos de B.
+* iv. `E, J, K, L, C, P, Q , H, N, O`  son las hojas del árbol.
+* v. El camino desde A a J es único, lo conforman los nodos `A, B, F y J` y es de largo `3`.
+* vi. `G` es ancestro de P, y por lo tanto `P` es descendiente de D.
+* vii. L no es descendiente de C, puesto que no existe `un camino` desde C a L.
+* viii. La profundidad/nivel de C es `1`, de F es `2` y de `P` es 4.
+* ix. La altura de C es `0`, de `M` es 1 y de D es `3`
+* x. La altura del árbol es 4 (largo del camino entre la `hoja mas lejana P` y `raiz` ).
+
+(b) Aplique los recorridos :
+* i. en profundidad
+  * a) preorden
+  * b) inorden
+  * c) postorden
+* ii. por niveles
+
+```
+Pre-Orden: A - B  - E - F - J - K - L - C - D - G- M - P - Q - H - I - N - O
+
+In Orden: E B J F K L A C P M Q G D H N I O
+
+Post Orden: E J K L F B C P Q M G H N O I D A
+
+Por niveles: A B C D E F G H I J K L M N O P Q
+```
+
+15.- ¿Cuál es el número mínimo y máximo de nodos de un árbol general completo de altura h y
+grado k?
+
+```
+En un arbol general COMPLETO, de altura h y grado K, la cantidad de nodos varía entre:
+
+Min : (K^h + k - 2) / (k-1)
+Max: [ K ^(h+1) -1 ] / (k-1)
+```
+
+16.- El recorrido inorden en un árbol general visita:
+* a) Primero la mitad de los subárboles hijos, luego la raíz y luego los restantes subárboles hijos
+* b) Primero la raíz y luego los subárboles hijos
+* c) Primero los subárboles hijos y luego la raíz
+* d) Primero el subárbol hijo más izquierdo, luego la raíz y luego los restantes subárboles hijos
+
+```
+En un arbol general, el recorrido in orden visita primero el subarbol hijo mas izquierdo, luego la raiz, luego los restantes hijos.
+```
+
+17.- En un árbol general, la profundidad de un nodo n1 es……..
+* a) La longitud del único camino que existe entre la raíz y el nodo n1
+* b) La longitud del camino más largo que existe entre el nodo n1 y una hoja
+* c) La cantidad de nodos hijos del nodo n1
+* d) Ninguna de las otras opciones
+
+`RTA: A`
+
+18.- Un árbol general lleno de grado 4, tiene 21 nodos.
+* a) ¿Cuál es la altura del árbol?
+* b) Desarrolle el proceso realizado para obtener la respuesta anterior
+
+```
+Sabemos que en un grado lleno, la cantidad de nodos es igual a:
+ K ^(h+1) - 1 / (k-1)
+Siendo K el grado, y h la altura.
+
+Si reemplazamos k en la formula e igualamos a 21, tenemos que:
+
+  4 ^(h+1) - 1 / (4-1) = 21
+  4^(h+1) - 1 = 21 * 3
+  4^(h+1) = 63+1
+  4 ^(h+1)  =  4^3
+
+Luego igualando las potencias tenemos que H = 2.
+```
+
+19.- ¿Cuál es la cantidad mínima de nodos en un árbol general completo de grado 3 y altura 4?
+* a) 40
+* b) 41
+* c) 121
+* d) 122
+
+```
+RTA: B
+
+Recordando, la cantidad minima de nodos de un arbol general completo es:
+
+  [K^(h) + k - 2 ] / (k -1)
+
+Si completamos la ecuacion con los valores conocidos tenemos que
+  (3^4 + 3 - 2) / (3-1)
+  (81 + 3 - 2) / 2
+  41
+```
+
+20.- Si un árbol general lleno de grado 5 tiene 125 hojas.
+* a) ¿Cuál es la cantidad de nodos internos del árbol?
+* b) Desarrolle el proceso realizado para obtener la respuesta anterior.
+
+```
+Dado que el arbol está lleno, la cantidad total de nodos es:
+    K ^(h+1) - 1 / (k-1)
+Siendo K = 5
+
+Por otro lado, sabemos que en un nivel N, el arbol tendrá 5^N nodos.
+
+Si sabemos que la cantidad total de hojas es 125, entonces podemos deducir que 5^N = 125, en donde N = 3.
+Dado que las hojas están en el ultimo nivel, la altura que manejaremos es de 3.
+
+Reemplazando el nivel en la ecuación original, tenemos que la cantidad total de nodos es
+
+    5 ^(3+1) - 1 / (5-1) = 156
+
+De donde la cantidad total de nodos internos es 156 - 125 = 31
+
+```
