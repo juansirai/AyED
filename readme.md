@@ -39,6 +39,11 @@ En el presente repositorio se organizará todo el material teórico y práctico 
 * <a href="https://github.com/juansirai/AyED/tree/master/AyED/src/tp03/ejercicio4">Ejercicio 4</a>
 * <a href="https://github.com/juansirai/AyED/tree/master/AyED/src/tp03/ejercicio5">Ejercicio 5</a>
 
+<h3><a href="https://github.com/juansirai/AyED/blob/master/7%20-%20Semana%207/2022_TP04_AG.pdf">✨Practica 4 </a></h3>
+
+* <a href="https://github.com/juansirai/AyED/blob/master/7%20-%20Semana%207/ejercicio2.md">Ejercicio 2</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/AyED/src/tp04/ejercicio1/RecorridosAG.java">Ejercicio 3</a>
+
 ---------------------------------------------------------------------------------------
 
 
