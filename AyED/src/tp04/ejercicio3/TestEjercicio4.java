@@ -53,6 +53,14 @@ public class TestEjercicio4 {
 		System.out.println("Numeros impares mayores que 2 (por niveles): ");
 		System.out.println(L4.toString());
 
+		
+		System.out.println("Altura del arbol es: "+arbol7.altura());
+		
+		System.out.println("El numero 22 esta en el nivel "+arbol7.nivel(22));
+		System.out.println("El numero 25 esta en el nivel "+arbol7.nivel(25));
+		System.out.println("El numero 17 esta en el nivel "+arbol7.nivel(17));
+		
+		System.out.println("El ancho del arbol es: " + arbol7.ancho());
 	}
 
 }

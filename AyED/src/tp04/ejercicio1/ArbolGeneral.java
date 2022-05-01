@@ -1,6 +1,7 @@
 package tp04.ejercicio1;
 
 import tp02.ejercicio2.ListaEnlazadaGenerica;
+import tp02.ejercicio2.ColaGenerica;
 import tp02.ejercicio2.ListaGenerica;
 
 public class ArbolGeneral<T> {
@@ -74,18 +75,117 @@ public class ArbolGeneral<T> {
 	}
 	
 	public Integer altura() {
-		// Falta implementar..
-		return 0;
+		// caso base 1 si es vacio
+		if (this.esVacio()){
+			return -1;
+		}
+		
+		int altura = -1;
+		// caso base 2 si es hoja
+		if (this.esHoja()){
+			return 0;
+		}
+		
+		//lamada recursiva sobre cada nodo
+		else {
+			ListaGenerica<ArbolGeneral<T>> hijos = this.getHijos();
+			hijos.comenzar();
+			while(!hijos.fin()) {
+				//obtengo la maxima altura de los hijos
+				altura = Math.max(altura, hijos.proximo().altura());
+			}
+		}
+		//para cada nodo, devuelvo la maxima altura de sus hijos +1
+		return altura+1;
+		
 	}
-
+	
+	
 	public Integer nivel(T dato) {
-		// falta implementar
-		return -1;
+		// implementado con recorrido por niveles
+		int nivel = 0;
+		boolean encontre = false;
+		
+		// prevengo si el arbol es vacio
+		if(this.esVacio())
+			return -1;
+		else {
+			ArbolGeneral<T> aux;
+			ColaGenerica<ArbolGeneral<T>> cola = new ColaGenerica<ArbolGeneral<T>>();
+			
+			//encolo la raiz y marca de fin de nivel
+			cola.Encolar(this);
+			cola.Encolar(null);
+			
+			// desencolo y recorro el elemento y sus hijos
+			while(!cola.esVacia() && !encontre) {
+				aux = cola.Desencolar();
+				
+				//recorro ese nivel
+				if(aux != null && !encontre) {
+					if(aux.getDato().equals(dato))
+						encontre = true;
+					else {
+						if(aux.tieneHijos()) {
+							ListaGenerica<ArbolGeneral<T>> hijos = aux.getHijos();
+							hijos.comenzar();
+							while(!hijos.fin()) {
+								cola.Encolar(hijos.proximo());
+							}
+						}
+					}	
+				}
+				
+				//si corresponde, me muevo al siguiente nivel
+				else {
+					if(!cola.esVacia() && !encontre) {
+						cola.Encolar(null);
+						nivel++;
+					}
+				}
+			}
+		}
+		if(!encontre)
+			return -1;
+		return nivel;
 	}
 
 	public Integer ancho() {
-		// Falta implementar..
-		return 0;
+		// implementado con recorrido por niveles
+		int ancho = 0;
+		if(this.esVacio())
+			return -1;
+		else {
+			ColaGenerica<ArbolGeneral<T>> cola = new ColaGenerica<ArbolGeneral<T>>();
+			ArbolGeneral<T> arbolAuxiliar;
+			int nodos = 0;
+			cola.Encolar(this);
+			cola.Encolar(null);
+			
+			while(!cola.esVacia()) {
+				arbolAuxiliar = cola.Desencolar();
+				
+				if(arbolAuxiliar!=null) {
+					nodos++;
+					if(arbolAuxiliar.tieneHijos()) {
+						ListaGenerica<ArbolGeneral<T>> hijos =arbolAuxiliar.getHijos();
+						hijos.comenzar();
+						while(!hijos.fin())
+							cola.Encolar(hijos.proximo());
+					}
+				}
+				else {
+					if(!cola.esVacia()) {
+						cola.Encolar(null);
+						ancho = Math.max(ancho, nodos);
+						// cuando cambio de nivel reseteo la cantidad de nodos
+						nodos = 0;
+					}
+				}
+			}
+			
+		}
+		return ancho;
 	}
 
 }
