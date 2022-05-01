@@ -187,5 +187,45 @@ public class ArbolGeneral<T> {
 		}
 		return ancho;
 	}
+	
+	public Boolean esAncestro(T a, T b) {
+		// se evalua con un recorrido en profundidad pre orden
+		boolean resultado = false;
 
+		ArbolGeneral<T> aux = null;
+		ArbolGeneral<T> aux2 = null;
+		
+		if(!this.esVacio()) {
+			aux = buscarA(a, this);
+			if(aux!=null)
+				aux2 = buscarA(b, aux);
+		}
+		
+		resultado = (aux != null & aux2 != null);
+		return resultado;
+	}
+	
+	private ArbolGeneral<T> buscarA(T dato, ArbolGeneral<T>subArbol) {
+		boolean encontre = false;
+		T dato1 = subArbol.getDato();
+		ArbolGeneral<T> aux = null;
+
+		if(dato1.equals(dato)) {
+			aux = subArbol;
+			encontre = true;
+			return aux;
+		}
+		else {
+			if(subArbol.tieneHijos()) {
+				ListaGenerica<ArbolGeneral<T>> hijos = subArbol.getHijos();
+				hijos.comenzar();
+			
+				while(!hijos.fin() && aux==null) {
+					aux = buscarA(dato, hijos.proximo());
+				}
+			}
+		}
+		
+		return aux;
+	}
 }
