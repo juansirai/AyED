@@ -45,7 +45,7 @@ En el presente repositorio se organizará todo el material teórico y práctico 
 * <a href="https://github.com/juansirai/AyED/blob/master/AyED/src/tp04/ejercicio1/RecorridosAG.java">Ejercicio 3</a>
 * <a href="https://github.com/juansirai/AyED/blob/master/AyED/src/tp04/ejercicio1/ArbolGeneral.java">Ejercicio 4</a>
 * <a href="https://github.com/juansirai/AyED/blob/master/AyED/src/tp04/ejercicio3/AnalizadorArbol.java">Ejercicio 5</a>
-* <a href="https://github.com/juansirai/AyED/blob/master/AyED/src/tp04/ejercicio6/Ejercicio6.java">Ejercicio 6</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/AyED/src/tp04/ejercicio1/ArbolGeneral.java">Ejercicio 6</a>
 * <a href="https://github.com/juansirai/AyED/tree/master/AyED/src/tp04/ejercicio7">Ejercicio 7</a>
 
 ---------------------------------------------------------------------------------------
