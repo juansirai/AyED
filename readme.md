@@ -39,6 +39,11 @@ En el presente repositorio se organizará todo el material teórico y práctico 
 * <a href="https://github.com/juansirai/AyED/tree/master/AyED/src/tp03/ejercicio4">Ejercicio 4</a>
 * <a href="https://github.com/juansirai/AyED/tree/master/AyED/src/tp03/ejercicio5">Ejercicio 5</a>
 
+<h3><a href="https://github.com/juansirai/AyED/blob/master/7%20-%20Semana%207/2022_TP04_AG.pdf">✨Practica 4 </a></h3>
+
+* <a href="https://github.com/juansirai/AyED/blob/master/7%20-%20Semana%207/ejercicio2.md">Ejercicio 2</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/AyED/src/tp04/ejercicio1/RecorridosAG.java">Ejercicio 3</a>
+
 ---------------------------------------------------------------------------------------
 
 
@@ -397,6 +402,26 @@ public void preOrden() {
     hijo.preOrden();
   }
 }
+
+// implementacion en Java
+
+package ayed;
+public class ArbolGeneral<T> {
+public ListaEnlazadaGenerica<T> preOrden() {
+	ListaEnlazadaGenerica<T> lis = new ListaEnlazadaGenerica<T>();
+ 	this.preOrden(lis);
+ 	return lis;
+ 	}
+
+private void preOrden(ListaGenerica<T> l) {
+ 	l.agregarFinal(this.getDato());
+ 	ListaGenerica<ArbolGeneral<T>> lHijos = this.getHijos();
+ 	lHijos.comenzar();
+ 	while (!lHijos.fin()) {
+ 		(lHijos.proximo()).preOrden(l);
+ 	}
+  }
+ }
 ```
 
 `Recorrido Post Orden`
@@ -424,6 +449,30 @@ public void porNiveles() {
       encolar(hijo);
     }
   }
+  
+// implementacion en java
+
+public ListaGenerica<T> porNiveles(ArbolGeneral<T> arbol) {
+    ListaGenerica<T> result = new ListaEnlazadaGenerica<T>();
+    ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>();
+    ArbolGeneral<T> arbol_aux;
+    
+    cola.encolar(arbol);
+    while (!cola.esVacia()) {
+        arbol_aux = cola.desencolar();
+        result.agregarFinal(arbol_aux.getDato());
+        if (arbol_aux.tieneHijos()) {
+            ListaGenerica<ArbolGeneral<T>> hijos = arbol_aux.getHijos();
+            hijos.comenzar();
+            while (!hijos.fin()) {
+                cola.encolar(hijos.proximo());
+            }
+         }
+      }
+    return result;
+}
+
+
 ```
 
 `Contar cantidad de niveles`
