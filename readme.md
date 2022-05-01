@@ -402,6 +402,26 @@ public void preOrden() {
     hijo.preOrden();
   }
 }
+
+// implementacion en Java
+
+package ayed;
+public class ArbolGeneral<T> {
+public ListaEnlazadaGenerica<T> preOrden() {
+	ListaEnlazadaGenerica<T> lis = new ListaEnlazadaGenerica<T>();
+ 	this.preOrden(lis);
+ 	return lis;
+ 	}
+
+private void preOrden(ListaGenerica<T> l) {
+ 	l.agregarFinal(this.getDato());
+ 	ListaGenerica<ArbolGeneral<T>> lHijos = this.getHijos();
+ 	lHijos.comenzar();
+ 	while (!lHijos.fin()) {
+ 		(lHijos.proximo()).preOrden(l);
+ 	}
+  }
+ }
 ```
 
 `Recorrido Post Orden`
