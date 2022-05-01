@@ -449,6 +449,30 @@ public void porNiveles() {
       encolar(hijo);
     }
   }
+  
+// implementacion en java
+
+public ListaGenerica<T> porNiveles(ArbolGeneral<T> arbol) {
+    ListaGenerica<T> result = new ListaEnlazadaGenerica<T>();
+    ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>();
+    ArbolGeneral<T> arbol_aux;
+    
+    cola.encolar(arbol);
+    while (!cola.esVacia()) {
+        arbol_aux = cola.desencolar();
+        result.agregarFinal(arbol_aux.getDato());
+        if (arbol_aux.tieneHijos()) {
+            ListaGenerica<ArbolGeneral<T>> hijos = arbol_aux.getHijos();
+            hijos.comenzar();
+            while (!hijos.fin()) {
+                cola.encolar(hijos.proximo());
+            }
+         }
+      }
+    return result;
+}
+
+
 ```
 
 `Contar cantidad de niveles`
