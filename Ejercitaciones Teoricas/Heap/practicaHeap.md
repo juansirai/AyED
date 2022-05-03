@@ -75,3 +75,54 @@ Insert(8), DeleteMin(), Insert(2), DeleteMin(), DeleteMin()`
 De acuerdo algoritmo BuildHeap, insertaremos los elementos en un arbol binario, y a partir de alli comenzaremos a aplicar filtrado hacia abajo desde el elemento en la posicion N/2
 
 <img src="img/ejercicio6.png" width=600><br>
+
+`Ejercicio 7`
+
+`Aplique el algoritmo HeapSort, para ordenar descendentemente los siguientes elementos:`
+{15, 18, 40, 1, 7, 10, 33, 2, 140, 500, 11, 12, 13, 90}
+
+`Muestre paso a paso la ejecución del algoritmo sobre los datos`
+
+Para el metodo heap-sort, necesitaremos construir una MinHeap con los elementos que se desean ordenar, intercambiar el último elemento con el primero, decrementar el tamaño de la heap y filtrar hacia abajo.
+
+`Ejercicio 8`
+
+`Construir una max-heap binaria con los siguientes datos:`
+
+{5, 8, 12, 9, 7, 10, 21, 6, 14, 4}
+
+`a) Insertándolos de a uno`
+
+<img src="img/ejercicio8a.png" width=600><br>
+
+`b) Usando el algoritmo BuildHeap`
+
+<img src="img/ejercicio8b.png" width=600><br>
+
+`Ejercicio 9`
+
+`Suponga que una heap que representa una cola de prioridades está almacenada en el arreglo A (se comienza de la posición A[1]). Si insertamos la clave 16, ¿en qué posición quedará?`
+
+<img src="img/ejercicio9.png" width=600><br>
+
+Graficamente, la heap es:
+```
+                       11
+                    /      \
+                  21        27
+                /   \      /   \
+              37    36    34    32
+            /  \   /  \   /
+           43  44 42  51 62
+```
+La clave se insertaría en la posición 13 inicialmente. Si luego se realiza un percolate up para restaurar la propiedad de orden, lo primero que haría sería intercambiar lugar con el 34, para posteriormente terminar en el lugar del 27 `(posición 2)`
+
+
+`Ejercicio 12`
+
+`¿Cuáles de los siguientes arreglos representan una max-heap, min-heap o ninguna de las dos?`
+* **arreglo 1: 0 1 2 0 4 5 6 7 8 9** --> ❌ Ninguna
+* **arreglo 2: 9 8 7 6 5 4 3 2 1 0** --> ✔ Max Heap
+* **arreglo 3: 5 5 5 6 6 6 6 7 7 1** --> ❌ Ninguna
+* **arreglo 4: 9 3 9 2 1 6 7 1 2 1** --> ✔ Max Heap
+* **arreglo 5: 8 7 6 1 2 3 4 2 1 2** --> ❌ Ninguna
