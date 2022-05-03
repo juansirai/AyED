@@ -122,7 +122,130 @@ La clave se insertaría en la posición 13 inicialmente. Si luego se realiza un 
 
 `¿Cuáles de los siguientes arreglos representan una max-heap, min-heap o ninguna de las dos?`
 * **arreglo 1: 0 1 2 0 4 5 6 7 8 9** --> ❌ Ninguna
-* **arreglo 2: 9 8 7 6 5 4 3 2 1 0** --> ✔ Max Heap
+* **arreglo 2: 9 8 7 6 5 4 3 2 1 0** --> ✅ Max Heap
 * **arreglo 3: 5 5 5 6 6 6 6 7 7 1** --> ❌ Ninguna
-* **arreglo 4: 9 3 9 2 1 6 7 1 2 1** --> ✔ Max Heap
+* **arreglo 4: 9 3 9 2 1 6 7 1 2 1** --> ✅ Max Heap
 * **arreglo 5: 8 7 6 1 2 3 4 2 1 2** --> ❌ Ninguna
+
+
+`Ejercicio 13`
+
+`Un arreglo de 7 enteros se ordena ascendentemente usando el algoritmo HeapSort. Luego de la fase inicial del algoritmo (la construcción de la heap), ¿cuál de los siguientes es un posible orden del arreglo? `
+* (a) 85 78 45 51 53 47 49
+* (b) 85 49 78 45 47 51 53
+* (c) 85 78 49 45 47 51 53
+* (d) 45 85 78 53 51 49 47
+* (e) 85 51 78 53 49 47 45 ✅
+
+
+`Ejercicio 14`
+
+`En una Heap, ¿para un elemento que está en la posición i su hijo derecho está en la posición` **2*i + 1**
+
+`Ejercicio 15`
+
+`¿Siempre se puede decir que un árbol binario lleno es una Heap?`
+
+NO, ya que eso no garantiza que cumpla con la propiedad de orden
+
+`Ejercicio 16`
+
+`La operación que agrega un elemento a la heap que tiene n elementos, en el peor caso es de` O(log n)
+
+`Ejercicio 17`
+
+`Se construyó una Máx-Heap con las siguientes claves: 13, 21, 87, 30, 25, 22, 18. ¿Cuál de las siguientes opciones corresponde al resultado de realizar la construcción insertando las claves una a una?`
+* (a) 87, 30, 25, 22, 21, 18, 13 ❌
+* (b) 87, 30, 22, 21, 25, 13, 18 ❌
+* (c) 87, 30, 25, 13, 22, 18, 21 ❌
+* (d) 87, 30, 22, 13, 25, 21, 18 ✅
+
+
+`Ejercicio 18`
+
+`Se construyó una Máx-Heap con las siguientes claves: 13, 21, 87, 30, 25, 22, 18. ¿Cuál de las siguientes opciones corresponde al resultado de realizar la construcción aplicando el algoritmo Build-Heap?`
+* (a) 87, 30, 25, 22, 21, 18, 13 ❌
+* (b) 87, 30, 22, 21, 25, 13, 18 ✅
+* (c) 87, 30, 25, 13, 22, 18, 21 ❌
+* (d) 87, 30, 22, 13, 25, 21, 18 ❌
+
+`Ejercicio 19`
+
+`El algoritmo HeapSort consta de dos etapas:`
+* `1) se construye una heap y`
+* `2) se realizan los intercambios necesarios para dejar ordenados los datos.`
+
+`Asuma que la heap ya está construida y es la siguiente:`
+
+58 38 53 23 28 40 35 18
+
+`¿Cómo quedan los datos en el arreglo después de ejecutar sólo 2 pasos de la segunda etapa del Heapsort?`
+
+* (a) 40 38 23 28 35 18 53 58 ❌
+* (b) 53 38 40 23 28 18 35 58 ❌
+* (c) 40 38 23 35 28 18 53 58 ❌
+* (d) 40 38 35 23 28 18 53 58 ✅
+
+`Ejercicio 20`
+
+`Dada la Min-Heap 3, 8, 5, 15, 10, 7, 19, 28, 16, 25, 12. ¿En qué posición está ubicado el hijo derecho de la clave 15?`
+* (a) 7 ❌
+* (b) 8 ❌
+* (c) 9 ✅
+* (d) 10 ❌
+
+`Ejercicio 21`
+
+`Construya una min-heap con las siguientes claves: 15, 25, 23, 13, 18, 2, 19, 20, 17 insertándose una a una. Indique en qué posiciones quedaron ubicadas las claves: 2, 18 y 25.`
+
+Quedan dispuestas de la siguiente manera:
+* Clave 2: posicion 1
+* Clave 18: posicion 5
+* Clave 25: posicion 8
+
+`Ejercicio 22`
+
+`Luego de insertar la clave 15 en la siguiente min-heap, ¿cuántas de las claves que ya estaban en la heap han mantenido su lugar (es decir, ocupan en la min-heap resultante la misma posición que ocupaban antes de la inserción)?`
+
+```
+                    1
+                  /   \
+                2      3
+              /   \   /  \
+            17    19 36   7
+          /   \
+        25    100
+```
+La clave 15 se insertar+ia como hija de la 19, debiendo cambiar su lugar con ella.
+Queda luego la clave 2 como padre de la 17 y 15, y siendo que estamos en una minheap es correcto.
+
+Por lo tanto, 8 claves permanecen en la misma posicion.
+
+
+`Ejercicio 23`
+
+`Luego de una operación de borrado del mínimo en la siguiente min-heap, ¿cuántas claves han cambiado de lugar (es decir, ocupan en la min-heap resultante un lugar diferente al que ocupaban en la min-heap antes del borrado) ? (No contar la clave borrada, ya que no pertenece más a la heap)`
+
+```
+                    1
+                  /   \
+                2      3
+              /   \   /  \
+            17    19 36   7
+          /   \
+        25    100
+```
+
+Luego de la operacion de deleteMin, la heat resultante es:
+
+```
+                    2
+                  /   \
+                17      3
+              /   \   /  \
+            25    19 36   7
+          /   \
+        100    X
+```
+
+Es por ello que 4 claves ocupan un lugar diferente.
