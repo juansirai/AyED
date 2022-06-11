@@ -49,6 +49,21 @@ En el presente repositorio se organizará todo el material teórico y práctico 
 * <a href="https://github.com/juansirai/AyED/blob/master/AyED/src/tp04/ejercicio1/ArbolGeneral.java">Ejercicio 6</a>
 * <a href="https://github.com/juansirai/AyED/tree/master/AyED/src/tp04/ejercicio7">Ejercicio 7</a>
 
+
+
+<h3><a href="https://github.com/juansirai/AyED/tree/master/TP%2005">✨Practica 5 </a></h3>
+
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio01.md">Ejercicio 1</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio02.md">Ejercicio 2</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio03.md">Ejercicio 3</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio04.md">Ejercicio 4</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio05.md">Ejercicio 5</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio06.md">Ejercicio 6</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio07.md">Ejercicio 7</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio08.md">Ejercicio 8</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio09.md">Ejercicio 9</a>
+* <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio10.md">Ejercicio 10</a>
+
 ---------------------------------------------------------------------------------------
 
 
