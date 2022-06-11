@@ -25,3 +25,21 @@ public static void uno (int n) {
 <img src="img/ejercicio8_2.png">
 
 <img src="img/ejercicio8_3.png">
+
+---------------------------------------------------
+
+```java
+public static void dos (int n){
+  int i, j, k, sum;
+  sum = 0;
+  for ( i=1; i<=n; i++) {
+    for ( j=1; j <= i*i; j++) {
+      for ( k=1; k<= j; k++) {
+        sum = sum + 1;
+      }
+    }
+  }
+  }
+```
+
+<img src="img/ejercicio8_4.png">
