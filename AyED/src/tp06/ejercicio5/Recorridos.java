@@ -9,7 +9,7 @@ public class Recorridos<T> {
 	
 	
 	public ListaGenerica<Vertice<T>> dfs(Grafo<T> grafo){
-		//inicializar arreglo de booleanos en false
+		/*inicializar arreglo de booleanos en false*/
 		boolean[] marca = new boolean[grafo.listaDeVertices().tamanio()+1];
 		
 		// inicializo la lista de resultado
@@ -48,7 +48,7 @@ public class Recorridos<T> {
 	
 	public ListaGenerica<Vertice<T>> bfs(Grafo<T> grafo){
 		// inicializo la lista de booleanos
-		boolean[] marca = new boolean(grafo.listaDeVertices().tamanio()+1);
+		boolean[] marca = new boolean[grafo.listaDeVertices().tamanio()+1];
 		
 		//inicializo la lista a retornar como resultado
 		ListaEnlazadaGenerica<Vertice<T>> lista = new ListaEnlazadaGenerica<Vertice<T>>();
@@ -58,6 +58,7 @@ public class Recorridos<T> {
 				this.bfs(i, marca, lista, grafo);
 			}
 		}
+		return lista;
 	}
 	
 	private void bfs(int i, boolean[]marca, ListaEnlazadaGenerica<Vertice<T>> lista, Grafo<T> grafo) {
