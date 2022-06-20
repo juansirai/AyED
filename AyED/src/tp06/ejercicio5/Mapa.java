@@ -178,4 +178,50 @@ public class Mapa {
 		}
 	}
 	
+	public ListaGenerica<String> caminoSinCargarCombustible(String ciudad1, String ciudad2, int tanque){
+		ListaEnlazadaGenerica<String> camino = new ListaEnlazadaGenerica<String>();
+		boolean[]marca = new boolean[this.mapa.listaDeVertices().tamanio()+1];
+		Vertice<String>origen = buscar(ciudad1);
+		
+		dfsSinCombustible(origen.getPosicion(), this.mapa, marca, camino, ciudad2, tanque);
+		
+		return camino;
+	}
+	
+	
+	private boolean dfsSinCombustible(int i, Grafo<String>grafo, boolean[]marca, ListaEnlazadaGenerica<String>camino, String destino, int tanque) {
+		boolean encontre = false;
+		marca[i] = true;
+		Vertice<String>v = grafo.listaDeVertices().elemento(i);
+		ListaGenerica<Arista<String>> ady = grafo.listaDeAdyacentes(v);
+		
+		camino.agregarFinal(v.dato());
+		
+		/*caso base*/
+		if(v.dato().equals(destino))
+			encontre = true;
+		else {
+			ady.comenzar();
+			Arista<String>arista ;
+			
+			while(!ady.fin()&& !encontre) {
+				arista = ady.proximo();
+				int j = arista.verticeDestino().getPosicion();
+				
+				if(!marca[j]) {
+					int p = arista.peso();
+					
+					if(tanque-p>0) {
+						encontre = dfsSinCombustible(j, grafo, marca, camino, destino, tanque-p);
+					}
+				}
+			}
+			if(!encontre) {
+				camino.eliminarEn(camino.tamanio());
+				marca[i] = false; 
+			}
+		}
+		
+		return encontre;
+	}
 }

@@ -45,13 +45,13 @@ public class TestMapa {
 		ciudades.conectar(dol, guido, 41);
 		ciudades.conectar(guido, la, 53);
 		ciudades.conectar(la, vidal, 44);
-		ciudades.conectar(vidal, mdq, 67);
+		ciudades.conectar(vidal, mdq, 3000);
 		
-		ciudades.conectar(lp, bel, 2000);
+		ciudades.conectar(lp, bel, 20);
 		ciudades.conectar(bel, lan, 1);
 		ciudades.conectar(lan, aya, 6);
 		ciudades.conectar(aya, bal, 9);
-		ciudades.conectar(bal, mdq, 7);
+		ciudades.conectar(bal, mdq, 30);
 		
 		ciudades.conectar(cast, bel, 79);
 		ciudades.conectar(bel, cast, 79);
@@ -81,9 +81,14 @@ public class TestMapa {
 		//System.out.println(recorrido2.toString());
 		
 		
-		System.out.println("Camino mas corto desde La Plata a Mardel");
-		ListaGenerica<String> recorrido3 = mapa.caminoMasCorto("La Plata", "Mar del Plata");
-		System.out.println(recorrido3);
+		//System.out.println("Camino mas corto desde La Plata a Mardel");
+		//ListaGenerica<String> recorrido3 = mapa.caminoMasCorto("La Plata", "Mar del Plata");
+		//System.out.println(recorrido3);
+		
+		
+		System.out.println("Camino mas corto desde La Plata a Mardel sin cargar combustible");
+		ListaGenerica<String> recorrido4 = mapa.caminoSinCargarCombustible("La Plata", "Mar del Plata", 500);
+		System.out.println(recorrido4);
 	}
 
 }
