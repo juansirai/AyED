@@ -39,45 +39,51 @@ public class TestMapa {
 		ciudades.agregarVertice(bal);
 
 		/*creo los enlaces entre nodos*/
-		ciudades.conectar(lp, chas);
-		ciudades.conectar(chas, cast);
-		ciudades.conectar(cast, dol);
-		ciudades.conectar(dol, guido);
-		ciudades.conectar(guido, la);
-		ciudades.conectar(la, vidal);
-		ciudades.conectar(vidal, mdq);
-		ciudades.conectar(lp, bel);
-		ciudades.conectar(bel, lan);
-		ciudades.conectar(lan, aya);
-		ciudades.conectar(aya, bal);
-		ciudades.conectar(bal, mdq);
+		ciudades.conectar(lp, chas, 81);
+		ciudades.conectar(chas, cast, 65);
+		ciudades.conectar(cast, dol, 32);
+		ciudades.conectar(dol, guido, 41);
+		ciudades.conectar(guido, la, 53);
+		ciudades.conectar(la, vidal, 44);
+		ciudades.conectar(vidal, mdq, 67);
 		
-		ciudades.conectar(cast, bel);
-		ciudades.conectar(bel, cast);
-		ciudades.conectar(dol, lan);
-		ciudades.conectar(lan, dol);
-		ciudades.conectar(la, aya);
-		ciudades.conectar(aya, la);
-		ciudades.conectar(bal, vidal);
-		ciudades.conectar(vidal, bal);
+		ciudades.conectar(lp, bel, 2000);
+		ciudades.conectar(bel, lan, 1);
+		ciudades.conectar(lan, aya, 6);
+		ciudades.conectar(aya, bal, 9);
+		ciudades.conectar(bal, mdq, 7);
+		
+		ciudades.conectar(cast, bel, 79);
+		ciudades.conectar(bel, cast, 79);
+		ciudades.conectar(dol, lan, 107);
+		ciudades.conectar(lan, dol, 107);
+		ciudades.conectar(la, aya, 63);
+		ciudades.conectar(aya, la, 63);
+		ciudades.conectar(bal, vidal, 76);
+		ciudades.conectar(vidal, bal, 76);
 		
 		
 		
 		Mapa mapa = new Mapa(ciudades);
 		
-		System.out.println("El recorrido de La Plata a Mar del Plata es: ");
-		ListaGenerica<String> recorrido = mapa.devolverCamino("La Plata", "Mar del Plata");
-		System.out.println(recorrido.toString());
+		//System.out.println("El recorrido de La Plata a Mar del Plata es: ");
+		//ListaGenerica<String> recorrido = mapa.devolverCamino("La Plata", "Mar del Plata");
+		//System.out.println(recorrido.toString());
 		
 		
-		ListaEnlazadaGenerica<String> excepto = new ListaEnlazadaGenerica<String>();
-		excepto.agregarFinal("Dolores");
-		excepto.agregarFinal("Balcarce");
+		//ListaEnlazadaGenerica<String> excepto = new ListaEnlazadaGenerica<String>();
+		//excepto.agregarFinal("Dolores");
+		//excepto.agregarFinal("Balcarce");
 		
-		System.out.println("Recorrido sin pasar por dolores y balcarce: ");
+		//System.out.println("Recorrido sin pasar por dolores y balcarce: ");
 		
-		ListaGenerica<String> recorrido2 = mapa.devolverCaminoExceptuando("La Plata", "Mar del Plata", excepto);
-		System.out.println(recorrido2.toString());
+		//ListaGenerica<String> recorrido2 = mapa.devolverCaminoExceptuando("La Plata", "Mar del Plata", excepto);
+		//System.out.println(recorrido2.toString());
+		
+		
+		System.out.println("Camino mas corto desde La Plata a Mardel");
+		ListaGenerica<String> recorrido3 = mapa.caminoMasCorto("La Plata", "Mar del Plata");
+		System.out.println(recorrido3);
 	}
 
 }

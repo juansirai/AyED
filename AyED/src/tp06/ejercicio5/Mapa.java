@@ -114,4 +114,68 @@ public class Mapa {
 		return encontre;
 	}
 	
+	
+	public ListaGenerica<String> caminoMasCorto(String ciudad1, String ciudad2){
+		ListaEnlazadaGenerica<String>camino = new ListaEnlazadaGenerica<String>();
+		ListaEnlazadaGenerica<String>aux = new ListaEnlazadaGenerica<String>();
+		
+		boolean[] marca = new boolean[this.mapa.listaDeVertices().tamanio()+1];
+		Vertice<String> origen = buscar(ciudad1);
+		Minimo minimo = new Minimo(9999);
+		int costo = 0;
+		aux.agregarFinal(origen.dato());
+		marca[origen.getPosicion()] = true;
+		
+		dfsCorto(origen.getPosicion(), ciudad2, marca, this.mapa, camino, minimo, aux, costo);
+		
+		return camino;
+	}
+
+	private void dfsCorto(int i, String destino, boolean[]marca, Grafo<String> grafo, ListaEnlazadaGenerica<String>camino, Minimo minimo, ListaEnlazadaGenerica<String>aux, int costo) {
+		Vertice<String> vDestino = null;
+		int p=0; int j=0;
+		Vertice<String> v = grafo.listaDeVertices().elemento(i);
+		
+		ListaGenerica<Arista<String>> ady = grafo.listaDeAdyacentes(v);
+		ady.comenzar();
+		
+		while(!ady.fin()) {
+			Arista<String> arista = ady.proximo();
+			j = arista.verticeDestino().getPosicion();
+			if(!marca[j]) {
+				p = arista.peso();
+				if(costo+p<=minimo.getMinimo()) {
+					vDestino = arista.verticeDestino();
+					aux.agregarEn(vDestino.dato(), aux.tamanio()+1);
+					marca[j] = true;
+					
+					if(vDestino.dato().equals(destino)) {
+						minimo.setMinimo(costo+p);
+						copiarLista(aux, camino);
+					}
+					else
+						dfsCorto(j, destino, marca, grafo, camino, minimo, aux, costo+p);
+					
+					aux.eliminar(vDestino.dato());
+					marca[j] = false;
+				}
+			}
+		}
+		
+		
+	}
+	
+	
+	
+	private void copiarLista (ListaEnlazadaGenerica<String> lis,ListaEnlazadaGenerica<String> camino) {
+		lis.comenzar();
+		camino.comenzar();
+		while(!camino.fin())
+			camino.eliminar(camino.proximo());
+
+		while(!lis.fin()) {
+			camino.agregarFinal(lis.proximo());
+		}
+	}
+	
 }
