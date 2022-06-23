@@ -224,4 +224,79 @@ public class Mapa {
 		
 		return encontre;
 	}
+	
+	
+	
+	public ListaGenerica<String> caminoConMenorCargaDeCombustible(String ciudad1, String ciudad2, int tanqueAuto){
+		ListaEnlazadaGenerica<String> camino = new ListaEnlazadaGenerica<String>(); /*camino a retornar*/
+		ListaEnlazadaGenerica<String> aux = new ListaEnlazadaGenerica<String>(); /*auxiliar para ir guardando los minimos*/
+		
+		Vertice<String> v = buscar(ciudad1);
+		boolean[] marca = new boolean[this.mapa.listaDeVertices().tamanio()+1];
+		
+		Minimo minimo = new Minimo(9999);
+		
+		aux.agregarFinal(v.dato()); /*agrego el vertice y lo marco como visitado (ver si es correcto)*/
+		marca[v.getPosicion()] = true;
+		
+		int remanente = tanqueAuto;
+		int cargas = 0;
+				
+		dfsCombustibleMinimo(v.getPosicion(), this.mapa, marca, camino,aux, ciudad2, tanqueAuto,remanente,minimo, cargas);
+		return camino;
+	}
+	
+	
+	
+	private void dfsCombustibleMinimo(int i, Grafo<String>grafo, boolean[]marca,ListaEnlazadaGenerica<String> camino,
+			                          ListaEnlazadaGenerica<String> aux , String destino, 
+			                          int tanque,int remanente, Minimo minimo, int cargas ) {
+		
+	
+	Vertice<String>vDestino= null;
+	int p=0; int j=0;
+	Vertice<String>v = grafo.listaDeVertices().elemento(i);
+	ListaGenerica<Arista<String>>ady = grafo.listaDeAdyacentes(v);
+	
+	if(v.dato().equals(destino)) {	
+		if(cargas<=minimo.getMinimo()){
+				minimo.setMinimo(cargas);
+			copiarLista(aux, camino);
+		}
+	}
+	else {
+		ady.comenzar();
+		while(!ady.fin()) {
+		
+			Arista<String>arista = ady.proximo();
+			j = arista.verticeDestino().getPosicion();
+			if(!marca[j]) {
+			
+				p = arista.peso();  //consumo de combustible que me implicaria el tramo
+				if(p<tanque) {
+				    if(remanente-p<=0) {
+					    remanente = tanque;
+					    cargas += 1;
+				    }
+			
+				
+				    vDestino = arista.verticeDestino();
+				    aux.agregarEn(vDestino.dato(), aux.tamanio()+1);
+				    marca[j] = true;
+					
+				    dfsCombustibleMinimo(j, this.mapa, marca, camino,aux, destino, tanque,remanente-p,minimo, cargas);
+				
+				    aux.eliminar(vDestino.dato());
+					marca[j] = false;
+					cargas-=1;
+				
+					}
+		
+				}
+			}
+
+		}	
+	}
+	
 }
+
