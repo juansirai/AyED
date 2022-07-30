@@ -64,6 +64,16 @@ En el presente repositorio se organizará todo el material teórico y práctico 
 * <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio09.md">Ejercicio 9</a>
 * <a href="https://github.com/juansirai/AyED/blob/master/TP%2005/ejercicio10.md">Ejercicio 10</a>
 
+<h3><a href="https://github.com/juansirai/AyED/tree/master/TP%2005">✨Practica 6 </a></h3>
+
+* <a href = "https://github.com/juansirai/AyED/blob/master/TP%2006/ejercicio01.md">Ejercicio 1</a>
+* <a href = "https://github.com/juansirai/AyED/blob/master/TP%2006/ejercicio02.md">Ejercicio 2</a>
+* <a href = "https://github.com/juansirai/AyED/tree/master/AyED/src/tp06/ejercicio3">Ejercicio 3 y 4</a>
+* <a href = "https://github.com/juansirai/AyED/tree/master/AyED/src/tp06/ejercicio5">Ejercicio 5</a>
+* <a href = "https://github.com/juansirai/AyED/tree/master/AyED/src/tp06/ejercicio6">Ejercicio 6</a>
+* <a href = "https://github.com/juansirai/AyED/blob/master/TP%2006/ejercicio07.md">Ejercicio 7</a>
+
+
 ---------------------------------------------------------------------------------------
 
 
